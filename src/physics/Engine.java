@@ -23,14 +23,16 @@ public class Engine {
                 e2 = entities.get(j);
 
                 Vector2D F = e1.gravityForce(e2);
-                e1.applyImpulse(F);
-                e2.applyImpulse(F.reflect());
+                
+                e1.applyForce(F);
+                e2.applyForce(F.reflect());
             }
         }
         
         //Update physics
         for (Entity entity : entities) {
             entity.update(Constants.DELTA);
+            entity.acceleration = new Vector2D();
         }
     }
     

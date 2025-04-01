@@ -6,10 +6,10 @@ package utils;
  */
 
 public class Vector2D {
-    public float x;
-    public float y;
+    public double x;
+    public double y;
     
-    public Vector2D(float x, float y){
+    public Vector2D(double x, double y){
         this.x = x;
         this.y = y;
     }
@@ -30,17 +30,17 @@ public class Vector2D {
         return new Vector2D(x-other.x, y-other.y);
     }
     
-    public Vector2D scale(float factor){
+    public Vector2D scale(double factor){
         return new Vector2D(x*factor, y*factor);
     }
     
-    public float dot(Vector2D other){
+    public double dot(Vector2D other){
         return x*other.x + y*other.y;
     }
     
     //Unit Vector/ Direction
     public Vector2D normalize() {
-        float length = length();
+        double length = length();
         if(length != 0)
             return scale(1/length);
         return new Vector2D();
@@ -50,19 +50,19 @@ public class Vector2D {
         return scale(-1);
     }
     
-    public float distanceTo(Vector2D other){
-        float x = other.x - this.x;
-        float y = other.y - this.y;
+    public double distanceTo(Vector2D other){
+        double x = other.x - this.x;
+        double y = other.y - this.y;
         
-        return (float)Math.sqrt(x*x + y*y);
+        return Math.sqrt(x*x + y*y);
     }
     
-    public float length() {
-        return (float)Math.sqrt(x*x + y*y);
+    public double length() {
+        return Math.sqrt(x*x + y*y);
     }
     
     public boolean isEqualApprox(Vector2D other){
-        float epsilon = 6e-7f;
+        double epsilon = 6e-7f;
         return distanceTo(other) < epsilon;
     }
     

@@ -15,10 +15,10 @@ public abstract class Entity {
     public Vector2D position;
     public Vector2D velocity;
     public Vector2D acceleration;
-    public float mass;
+    public double mass;
     public Circle  shape;
 
-    public Entity(float mass, Circle shape) {
+    public Entity(double mass, Circle shape) {
         this.position = new Vector2D();
         this.velocity = new Vector2D();
         this.acceleration = new Vector2D();
@@ -26,7 +26,7 @@ public abstract class Entity {
         this.shape = shape;
     }
 
-    public Entity(Vector2D position, float mass, Circle shape) {
+    public Entity(Vector2D position, double mass, Circle shape) {
         this.position = position;
         this.velocity = new Vector2D();
         this.acceleration = new Vector2D();
@@ -34,7 +34,7 @@ public abstract class Entity {
         this.shape = shape;
     }
 
-    public Entity(Vector2D position, Vector2D velocity, float mass, Circle shape) {
+    public Entity(Vector2D position, Vector2D velocity, double mass, Circle shape) {
         this.position = position;
         this.velocity = velocity;
         this.acceleration = new Vector2D();
@@ -45,8 +45,7 @@ public abstract class Entity {
     
     
     public void applyForce(Vector2D force) {
-        Vector2D forceAcceleration = force.scale(1/mass); //a = F/m;
-        acceleration = acceleration.add(forceAcceleration);
+        acceleration = acceleration.add(force.scale(1/mass)); //a = F/m;
     }
     
     public void applyImpulse(Vector2D impulse) {
@@ -54,7 +53,7 @@ public abstract class Entity {
         velocity = velocity.add(impulseVelocity);
     }
     
-    public void update(float deltaTime) {
+    public void update(double deltaTime) {
         position = position.add(velocity.scale(deltaTime));
         velocity = velocity.add(acceleration.scale(deltaTime));
     }
@@ -79,7 +78,7 @@ public abstract class Entity {
         this.acceleration = acceleration;
     }
 
-    public void setMass(float mass) {
+    public void setMass(double mass) {
         this.mass = mass;
     }
     

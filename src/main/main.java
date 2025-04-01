@@ -1,4 +1,3 @@
-
 package main;
 
 import javax.swing.JFrame;
@@ -28,15 +27,15 @@ public class main {
         //Orbital bodies instantiation
         HeavenlyBody sun = new HeavenlyBody(
                 new Vector2D(0,0), 
-                1.9890e30f,
+                1.9890e30,
                 new Circle(50, Color.ORANGE)
         );
         
         HeavenlyBody earth = new HeavenlyBody(
                 new Vector2D(Constants.UA, 0), 
-                new Vector2D(0, 29.783e3f),
-                5.9742e24f,
-                new Circle(5, Color.GREEN)
+                new Vector2D(0, 29.783e3), //v0
+                5.9742e24,
+                new Circle(10, Color.GREEN)
         );
         
         engine.add(sun);
