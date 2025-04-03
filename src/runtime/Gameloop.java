@@ -1,10 +1,14 @@
 
 package runtime;
 
-import java.util.ArrayList;
 import physics.Engine;
-import physics.Entity;
+import utils.Constants;
 
+/*
+ * Cumple el propósito de activar un hilo, manejar la lógica de actualización,
+ * y en cada "tick" pide al Engine que actualice a los cuerpos físicos. Luego, 
+ * activa el renderer que los muestra en el frame y repite el proceso
+*/
 
 public class Gameloop implements Runnable {
     Thread mainThread;
@@ -22,20 +26,18 @@ public class Gameloop implements Runnable {
         mainThread.start();
     }
     
-    public void update(float deltaTime){
-        engine.step(deltaTime);
+    public void update(){
+        engine.step(Constants.DT);
     }
     
     public void render(){
-        ArrayList<Entity> entities = new ArrayList(engine.entities);
-        renderer.render(entities);
+        renderer.render();
     }
     
     @Override
     public void run() {
 
-        int TARGET_FPS = 60;
-        double FRAME_TIME = 1000000000 / TARGET_FPS;
+        double FRAME_TIME = 1000000000 / Constants.TARGET_FPS;
 
         double delta = 0;
         long lastTime = System.nanoTime();
@@ -49,7 +51,7 @@ public class Gameloop implements Runnable {
             lastTime = currentTime;
 
             if (delta >= 1) {
-                update((float)delta);
+                update();
                 render();
                 delta--;
             }

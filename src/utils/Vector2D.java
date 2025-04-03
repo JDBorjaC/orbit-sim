@@ -1,8 +1,8 @@
 package utils;
 
 /*
- * 2D Vector class for mathematical and physics-based operations.
- * Inspired by Godot's Vector2 and Richard Marxer's Física library for Processing.
+ * Representación de un vector en el plano cartesiano. 
+ * Implementa adiciones, restas, producto punto, entre otras operaciones.
  */
 
 public class Vector2D {
@@ -38,7 +38,7 @@ public class Vector2D {
         return x*other.x + y*other.y;
     }
     
-    //Unit Vector/ Direction
+    //Vector Unitario / Dirección
     public Vector2D normalize() {
         double length = length();
         if(length != 0)
@@ -51,10 +51,7 @@ public class Vector2D {
     }
     
     public double distanceTo(Vector2D other){
-        double x = other.x - this.x;
-        double y = other.y - this.y;
-        
-        return Math.sqrt(x*x + y*y);
+        return subtract(other).length();
     }
     
     public double length() {
@@ -62,7 +59,7 @@ public class Vector2D {
     }
     
     public boolean isEqualApprox(Vector2D other){
-        double epsilon = 6e-7f;
+        double epsilon = 1e-6;
         return distanceTo(other) < epsilon;
     }
     

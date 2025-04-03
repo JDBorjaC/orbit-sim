@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Fla_Borja_Cantillo/Documents/NetBeansProjects/PhysicsSim/src/physics/HeavenlyBody.java</file>
-            <file>file:/C:/Users/Fla_Borja_Cantillo/Documents/NetBeansProjects/PhysicsSim/src/main/main.java</file>
-            <file>file:/C:/Users/Fla_Borja_Cantillo/Documents/NetBeansProjects/PhysicsSim/src/utils/Vector2D.java</file>
-            <file>file:/C:/Users/Fla_Borja_Cantillo/Documents/NetBeansProjects/PhysicsSim/src/physics/Entity.java</file>
-            <file>file:/C:/Users/Fla_Borja_Cantillo/Documents/NetBeansProjects/PhysicsSim/src/runtime/Renderer.java</file>
-            <file>file:/C:/Users/Fla_Borja_Cantillo/Documents/NetBeansProjects/PhysicsSim/src/runtime/Gameloop.java</file>
-            <file>file:/C:/Users/Fla_Borja_Cantillo/Documents/NetBeansProjects/PhysicsSim/src/utils/Constants.java</file>
-            <file>file:/C:/Users/Fla_Borja_Cantillo/Documents/NetBeansProjects/PhysicsSim/src/physics/Engine.java</file>
+            <file>file:/C:/Users/Fla_Borja_Cantillo/Desktop/orbit-sim/src/utils/Vector2D.java</file>
+            <file>file:/C:/Users/Fla_Borja_Cantillo/Desktop/orbit-sim/src/main/main.java</file>
+            <file>file:/C:/Users/Fla_Borja_Cantillo/Desktop/orbit-sim/src/runtime/Gameloop.java</file>
+            <file>file:/C:/Users/Fla_Borja_Cantillo/Desktop/orbit-sim/src/physics/Body2D.java</file>
+            <file>file:/C:/Users/Fla_Borja_Cantillo/Desktop/orbit-sim/src/utils/Constants.java</file>
+            <file>file:/C:/Users/Fla_Borja_Cantillo/Desktop/orbit-sim/src/physics/Engine.java</file>
         </group>
     </open-files>
 </project-private>

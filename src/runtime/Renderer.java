@@ -9,14 +9,14 @@ import java.awt.RenderingHints;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
-import physics.Entity;
+import physics.Body2D;
 import utils.Constants;
 
 public class Renderer extends JPanel {
-    private List<Entity> entities;
+    private List<Body2D> entities;
     
-    public Renderer(){
-        this.entities = new ArrayList();
+    public Renderer(List<Body2D> entities){
+        this.entities = entities;
         setPreferredSize(new Dimension(Constants.WIDTH, Constants.HEIGHT));
         setBackground(Color.BLACK);
         setDoubleBuffered(true); //Allegedly better for performance
@@ -30,15 +30,14 @@ public class Renderer extends JPanel {
         //Antialiasing to ease the edges
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         
-        for (Entity entity : entities) {
+        for (Body2D entity : entities) {
             entity.draw(g2d);
         }
         
         g2d.dispose();
     }
     
-    public void render(List<Entity> entities) {
-        this.entities = entities;
+    public void render() {
         repaint();
     }
 
