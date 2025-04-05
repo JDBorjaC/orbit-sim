@@ -46,7 +46,7 @@ public class Body2D {
     //en el instante. Note que en update(), se nulifica la aceleración 
     //para el próximo step del motor
     public void applyForce(Vector2D force) {
-        acceleration = acceleration.add(force.scale(1 / mass)); //a = F/m;
+        acceleration = force.scale(1 / mass); //a = F/m;
     }
 
     public void eulerUpdate(double dt) {

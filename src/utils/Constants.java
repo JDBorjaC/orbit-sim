@@ -21,5 +21,5 @@ public class Constants {
     public static final double SCALE = 250.0f / UA; 
     
     public static final float DT = 3600*24;
-    public static final int TARGET_FPS = 120;
+    public static final int TARGET_FPS = 60;
 }
