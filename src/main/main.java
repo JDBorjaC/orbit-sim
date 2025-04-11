@@ -7,6 +7,7 @@ import runtime.Gameloop;
 import runtime.Renderer;
 import utils.Vector2D;
 import java.awt.Color;
+import java.util.Random;
 import physics.Circle;
 import utils.Constants;
 
@@ -22,45 +23,61 @@ public class main {
         
         // -------------------CUERPOS CELESTES--------------------
         
+        double ua = Constants.UA;
+        
         Body2D sun = new Body2D(
                 new Vector2D(0,0), 
                 1.9890e30,
-                new Circle(50, Color.ORANGE)
+                new Circle(10, Color.ORANGE)
         );
         
         Body2D earth = new Body2D(
-                new Vector2D(Constants.UA, 0), 
+                new Vector2D(ua, 0), 
                 new Vector2D(0, 29.783e3), //v0
                 5.9742e24,
-                new Circle(10, Color.GREEN)
+                new Circle(5, Color.GREEN)
         );
         
         Body2D mars = new Body2D(
-                new Vector2D(-1.524*Constants.UA, 0),
+                new Vector2D(-1.524*ua, 0),
                 new Vector2D(0, 24.077*1000),
                 6.419e23,
-                new Circle(10, Color.RED)
+                new Circle(5, Color.RED)
         );
         
         Body2D mercury = new Body2D(
-                new Vector2D(0.387*Constants.UA, 0),
+                new Vector2D(0.387*ua, 0),
                 new Vector2D(0, -47.4*1000),
                 3.30e23,
-                new Circle(10, Color.GRAY)
+                new Circle(5, Color.GRAY)
         );
         
         Body2D venus = new Body2D(
-                new Vector2D(0.723*Constants.UA, 0),
+                new Vector2D(0.723*ua, 0),
                 new Vector2D(0, -35.02*1000),
                 4.869e24,
-                new Circle(10, Color.BLUE)
+                new Circle(5, Color.BLUE)
         );
         
         engine.add(sun);
-        engine.add(earth);
-        engine.add(mars);
-        engine.add(mercury);
-        engine.add(venus);
+        
+        Random random = new Random(); 
+        for (int i = 0; i < 1000; i++) {
+            
+            double angle = random.nextDouble()*2*Math.PI; //0 a 360 grados
+            double radius = 0.387*ua + (12-0.387)*ua*random.nextDouble();
+            
+            double v0 = Math.sqrt((Constants.G*sun.mass/radius));
+            
+            double mass = mercury.mass + (earth.mass - mercury.mass)*random.nextDouble();
+            
+            engine.add( new Body2D(
+                    new Vector2D(radius*Math.cos(angle),radius*Math.sin(angle)), //Distancia r separada en componentes
+                    new Vector2D(-v0*Math.sin(angle), v0*Math.cos(angle)), // Vector velocidad perpendicular a la distancia al sol
+                    mass,
+                    new Circle(2, Color.CYAN)
+            ));
+        }
         
         // -------------------------------------------------------
         
