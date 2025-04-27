@@ -28,7 +28,7 @@ public class main {
         Body2D sun = new Body2D(
                 new Vector2D(0,0), 
                 1.9890e30,
-                new Circle(10, Color.ORANGE)
+                new Circle(9, Color.ORANGE)
         );
         
         Body2D earth = new Body2D(
@@ -38,25 +38,11 @@ public class main {
                 new Circle(5, Color.GREEN)
         );
         
-        Body2D mars = new Body2D(
-                new Vector2D(-1.524*ua, 0),
-                new Vector2D(0, 24.077*1000),
-                6.419e23,
-                new Circle(5, Color.RED)
-        );
-        
         Body2D mercury = new Body2D(
                 new Vector2D(0.387*ua, 0),
                 new Vector2D(0, -47.4*1000),
                 3.30e23,
                 new Circle(5, Color.GRAY)
-        );
-        
-        Body2D venus = new Body2D(
-                new Vector2D(0.723*ua, 0),
-                new Vector2D(0, -35.02*1000),
-                4.869e24,
-                new Circle(5, Color.BLUE)
         );
         
         engine.add(sun);
@@ -75,7 +61,7 @@ public class main {
                     new Vector2D(radius*Math.cos(angle),radius*Math.sin(angle)), //Distancia r separada en componentes
                     new Vector2D(-v0*Math.sin(angle), v0*Math.cos(angle)), // Vector velocidad perpendicular a la distancia al sol
                     mass,
-                    new Circle(2, Color.CYAN)
+                    new Circle(1, Color.WHITE)
             ));
         }
         
