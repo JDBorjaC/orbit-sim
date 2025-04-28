@@ -48,7 +48,7 @@ public class main {
         engine.add(sun);
         
         Random random = new Random(); 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < Constants.N_BODIES; i++) {
             
             double angle = random.nextDouble()*2*Math.PI; //0 a 360 grados
             double radius = 0.387*ua + (12-0.387)*ua*random.nextDouble();
@@ -69,7 +69,7 @@ public class main {
         
         
         
-        Renderer renderer = new Renderer(engine.bodies);
+        Renderer renderer = new Renderer(engine);
         frame.add(renderer);
         frame.pack(); //Adjust to renderer's desired size
         frame.setVisible(true);

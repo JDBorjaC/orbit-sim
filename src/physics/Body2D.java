@@ -63,12 +63,12 @@ public class Body2D {
         velocity = velocity.add(acceleration.add(newAcc).scale(0.5*dt));
     }
 
-    public Vector2D gravityForce(Body2D other) {
+    public Vector2D gravityForce(Vector2D otherPosition, double otherMass) {
 
-        Vector2D dir = other.position.subtract(this.position);
+        Vector2D dir = otherPosition.subtract(this.position);
         double dist2 = dir.dot(dir);
 
-        double F = (Constants.G * this.mass * other.mass) / (dist2);
+        double F = (Constants.G * this.mass * otherMass) / (dist2);
         return dir.normalize().scale(F);
     }
 
