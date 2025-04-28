@@ -69,7 +69,7 @@ public class QuadTree {
         }
 
         //Tratar de ingresar en esta celda
-        if (bodies.size() < 4) {
+        if (bodies.size() < Constants.MAX_QTCELL_CAPACITY) {
             bodies.add(body);
             return;
         }
