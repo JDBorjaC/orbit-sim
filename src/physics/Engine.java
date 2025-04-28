@@ -2,7 +2,6 @@ package physics;
 
 import java.util.List;
 import java.util.ArrayList;
-import utils.Boundary;
 import utils.Constants;
 import utils.QuadTree;
 import utils.Vector2D;

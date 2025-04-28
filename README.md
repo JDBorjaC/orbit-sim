@@ -3,6 +3,10 @@
 
  Se simula el movimiento de cuerpos celestes como el Sol y la Tierra mediante la interacción gravitatoria. Para ello, se implementó un motor de física que utiliza el método de Euler, así como el de Verlet.
 
+ Adicionalmente, se hace comparación de dos estrategias para calcular las fuerzas con las que interactúa cada objeto:
+ 1. Interacción entre todos los cuerpos O(n^2)
+ 2. Estimación mediante el algoritmo de Barnes-Hut O(nlogn)
+
 ## Estructura del Proyecto
 
 El código está organizado en los siguientes paquetes:
@@ -18,11 +22,14 @@ El código está organizado en los siguientes paquetes:
 - **utils**: Contiene clases de utilidad y constantes.
   - `Constants.java`: Define valores constantes utilizados en la simulación.
   - `Vector2D.java`: Implementa operaciones matemáticas para vectores en 2D.
+  - `QuadTree.java`: Implementación de la estructura de datos y los métodos necesitados para utilizar Barnes-Hut (particiones del espacio y cálculo de centros de masa)
 
 ## Uso
-1. Configurar los parámetros en Constants.java. Aquí se pueden modificar las unidades esenciales y la escala de visualización, así como el método (EULER o VERLET)
+1. Configurar los parámetros en Constants.java. Aquí se pueden modificar las unidades físicas, la escala de visualización, el método de integración (EULER o VERLET), la estrategia de interacción (n^2 o Barnes-Hut), etc.
 
-2. Instanciar los cuerpos celestes en main asignando sus posiciones y velocidades iniciales.
+2. (OPCIONAL) en main.java se hace declaración de todos los componentes interactuando en el sistema, así que puede modficarse con mayor libertad su instanciación desde este archivo, bajo el riesgo de experimentar errores.
 
-2. Ejecutar el proyecto
+3. Instanciar los cuerpos celestes en main asignando sus posiciones y velocidades iniciales.
+
+4. Ejecutar el proyecto
 
